@@ -43,4 +43,5 @@ pip install timm===0.9.10 openpyxl==3.1.5
 pip install fastapi uvicorn
 pip install tensorflow==2.19.0
 pip install transformers==4.51.3
+pip install vllm==0.6.4.post1
 check_status "SGLang setup"
