@@ -46,3 +46,12 @@ check_status "Git setup"
 echo "Initializing conda..."
 $HOME/miniconda3/bin/conda init bash
 source ~/.bashrc
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+
+# Accept conda Terms of Service using full path to ensure it works
+echo "Accepting Anaconda Terms of Service..."
+$HOME/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main || true
+$HOME/miniconda3/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r || true
+# Fallback: try to accept all terms at once
+$HOME/miniconda3/bin/conda tos accept || true
+check_status "Conda ToS acceptance"
